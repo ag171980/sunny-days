@@ -1,0 +1,114 @@
+footer {
+    height: 15vh;
+    background-color: #292929;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -2px 6px -1px rgba(0,0,0,0.75);
+    
+}
+
+footer .datos {
+    height: 10vh;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .datos .redes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+}
+
+footer .datos .redes a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    margin: 10px;
+}
+
+footer .datos .redes .instagram {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+    transition: 0.3s all;
+    font-size: 30px;
+}
+footer .datos .redes .instagram:hover{
+    font-size: 35px;
+    transition: 0.3s all;
+}
+footer .datos .redes .facebook{
+    height: 35px;
+    width: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #3b5998;
+    color: white;
+    transition: 0.3s all;
+    font-size: 30px;
+}
+footer .datos .redes .facebook:hover{
+    font-size: 35px;
+    transition: 0.3s all;
+}
+footer .datos .redes .whatsapp{
+    height: 35px;
+    width: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background-color: green;
+    transition: 0.3s all;
+    font-size: 30px;
+}
+footer .datos .redes .whatsapp:hover{
+    font-size: 35px;
+    transition: 0.3s all;
+}
+footer .datos .redes .telefono{
+    height: 35px;
+    width: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #40AFFB;
+    transition: 0.3s all;
+    font-size: 30px;
+}
+footer .datos .redes .telefono:hover{
+    font-size: 35px;
+    transition: 0.3s all;
+}
+footer .datos a{
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    transition: 0.3s all;
+}
+footer .datos a:hover{
+    font-size: 27px;
+    transition: 0.3s all;
+}
