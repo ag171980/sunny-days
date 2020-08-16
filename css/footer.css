@@ -6,8 +6,7 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px -2px 6px -1px rgba(0,0,0,0.75);
-    
+    box-shadow: 0px -2px 6px -1px rgba(0, 0, 0, 0.75);
 }
 
 footer .datos {
@@ -50,11 +49,13 @@ footer .datos .redes .instagram {
     transition: 0.3s all;
     font-size: 30px;
 }
-footer .datos .redes .instagram:hover{
+
+footer .datos .redes .instagram:hover {
     font-size: 35px;
     transition: 0.3s all;
 }
-footer .datos .redes .facebook{
+
+footer .datos .redes .facebook {
     height: 35px;
     width: 35px;
     display: flex;
@@ -67,11 +68,13 @@ footer .datos .redes .facebook{
     transition: 0.3s all;
     font-size: 30px;
 }
-footer .datos .redes .facebook:hover{
+
+footer .datos .redes .facebook:hover {
     font-size: 35px;
     transition: 0.3s all;
 }
-footer .datos .redes .whatsapp{
+
+footer .datos .redes .whatsapp {
     height: 35px;
     width: 35px;
     display: flex;
@@ -83,11 +86,13 @@ footer .datos .redes .whatsapp{
     transition: 0.3s all;
     font-size: 30px;
 }
-footer .datos .redes .whatsapp:hover{
+
+footer .datos .redes .whatsapp:hover {
     font-size: 35px;
     transition: 0.3s all;
 }
-footer .datos .redes .telefono{
+
+footer .datos .redes .telefono {
     height: 35px;
     width: 35px;
     display: flex;
@@ -98,17 +103,30 @@ footer .datos .redes .telefono{
     transition: 0.3s all;
     font-size: 30px;
 }
-footer .datos .redes .telefono:hover{
+
+footer .datos .redes .telefono:hover {
     font-size: 35px;
     transition: 0.3s all;
 }
-footer .datos a{
+
+footer .datos a {
     color: white;
     text-decoration: none;
     font-size: 25px;
     transition: 0.3s all;
 }
-footer .datos a:hover{
+
+footer .datos a:hover {
     font-size: 27px;
     transition: 0.3s all;
+}
+
+@media (max-width:425px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
 }
