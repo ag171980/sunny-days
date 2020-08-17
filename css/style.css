@@ -1,15 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 /*font-family: 'Pacifico', cursive;*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     background-color: white;
 }
+
+header {
+    height: 10vh;
+}
+
 /*-------*/
 #loader-container {
     background-color: rgba(255, 255, 255, 0.9);
@@ -23,6 +30,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 #loader-container .loader {
     border: 6px solid transparent;
     height: 100px;
@@ -36,10 +44,30 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 @keyframes loader {
-    0% {transform: translate(0%, 0%)rotate(0deg);}
-    100% {transform: translate(0%, 0%)rotate(360deg);}
+    0% {
+        transform: translate(0%, 0%)rotate(0deg);
+    }
+
+    100% {
+        transform: translate(0%, 0%)rotate(360deg);
+    }
 }
+
+/*----*/
+.usuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: white;
+    padding-right: 15px;
+    padding-top: 10px;
+    position: relative;
+    z-index: 0;
+}
+
+/*----*/
 /*-------*/
 .bg {
     background-image: url('../imagenes/fondoo.jpg');
@@ -52,22 +80,26 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 section .bg .slider-text p {
     font-size: 90px;
     font-family: 'Pacifico', cursive;
 }
+
 h2 {
     text-align: center;
     position: relative;
     margin: 35px 0px;
     font-family: 'Pacifico', cursive;
 }
+
 h2 span {
     background-color: white;
     z-index: 100;
     position: relative;
     padding: 15px;
 }
+
 h2::after {
     content: '';
     width: 90vw;
@@ -82,6 +114,7 @@ h2::after {
     background-color: black;
     z-index: 50;
 }
+
 /*------------*/
 .offers {
     list-style-type: none;
@@ -92,26 +125,32 @@ h2::after {
     justify-content: space-around;
     align-items: center;
 }
+
 .offers li {
     float: left;
     padding: 0px;
     position: relative;
     overflow: hidden;
     margin: 30px 0px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
 }
+
 .offers li:hover .caption {
     opacity: 1;
 }
+
 .offers li .img {
     width: 350px;
     height: 300px;
 }
+
 .offers img {
     margin: 0px;
     padding: 0px;
     float: left;
     z-index: 4;
 }
+
 .offers .caption {
     cursor: pointer;
     position: absolute;
@@ -122,34 +161,51 @@ h2::after {
     -ms-transition: all 0.45s ease-in-out;
     transition: all 0.45s ease-in-out;
 }
+
 .offers .blur {
     background-color: rgba(0, 0, 0, 0.65);
     width: 400px;
     height: 300px;
-    z-index: 5;
+    z-index: 4;
     position: absolute;
 }
+
 .offers .information h1 {
     text-transform: uppercase;
     font-size: 30px;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
+
 .offers .information p {
     text-transform: uppercase;
     font-size: 18px;
     font-family: 'Barlow Condensed', sans-serif;
-    padding:0 20px;
+    padding: 0 20px;
 }
+
 .offers .information {
-    z-index: 10;
+    z-index: 5;
     color: #fff;
     position: absolute;
     width: 350px;
     height: 300px;
     text-align: center;
     top: 12vh;
-    padding:0 40px;
-    font-family: 'Open Sans Condensed', sans-serif;
+    padding: 0 40px;
+    
 }
+
+.offers .information .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.offers .information .buttons button {
+    margin: 0 10px;
+}
+
 /*------------*/
 @media (max-width:768px) {
     .offers {
@@ -161,7 +217,6 @@ h2::after {
         justify-content: center;
         align-items: center;
     }
-
 }
 
 @media (max-width:375px) {
@@ -184,18 +239,26 @@ h2::after {
         background-color: rgba(0, 0, 0, 0.65);
         width: 300px;
         height: 250px;
-        z-index: 5;
+        z-index: 4;
         position: absolute;
     }
 
     .offers .information {
-        z-index: 10;
+        z-index: 5;
         color: #fff;
         position: absolute;
         width: 300px;
         height: 250px;
         text-align: center;
         top: 10vh;
+    }
+
+    .offers .information h1 {
+        font-size: 22px;
+    }
+
+    .offers .information p {
+        font-size: 17px;
     }
 }
 
@@ -219,17 +282,25 @@ h2::after {
         background-color: rgba(0, 0, 0, 0.65);
         width: 250px;
         height: 200px;
-        z-index: 5;
+        z-index: 4;
         position: absolute;
     }
 
     .offers .information {
-        z-index: 10;
+        z-index: 5;
         color: #fff;
         position: absolute;
         width: 250px;
         height: 200px;
         text-align: center;
         top: 5vh;
+    }
+
+    .offers .information h1 {
+        font-size: 19px;
+    }
+
+    .offers .information p {
+        font-size: 14px;
     }
 }

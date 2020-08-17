@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+h1 {
+    text-align: center;
+    position: relative;
+    margin: 45px 0px;
+    font-family: 'Pacifico', cursive;
+}
+
+h1 span {
+    background-color: white;
+    z-index: 1;
+    position: relative;
+    padding: 15px;
+}
+
+h1::after {
+    content: '';
+    width: 90vw;
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    left: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    z-index: 0;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.productos .item {
+    background-color: white;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+    height: auto;
+    width: auto;
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+.productos .item .img {
+    width: 350px;
+    height: 300px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.productos .item h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.productos .item p {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.productos .item .buttons {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.productos .item .buttons a,
+.productos .item .buttons button {
+    width: 50%;
+}
+
+.productos .item .buttons a {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.productos .item .buttons button {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 10px;
+}
+
+@media(max-width:1108px) {
+    .productos {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media(max-width:732px) {
+    .productos .item .img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .productos {
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+@media(max-width:425px) {
+    .productos .item .img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .productos {
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+@media(max-width:375px) {
+    .productos .item .img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .productos {
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+@media(max-width:325px) {
+    .productos .item .img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .productos {
+        display: grid;
+        grid-template-columns: auto;
+    }
+}

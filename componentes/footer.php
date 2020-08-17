@@ -36,14 +36,14 @@
                 <i class="fas fa-phone-alt"></i>
             </div>
 
-            <a href="tel:1168589154" target="_blank">Telefono</a>
+            <a href="tel:1123892614" target="_blank">Telefono</a>
         </div>
         <div class="redes">
             <div class="whatsapp">
                 <i class="fab fa-whatsapp"></i>
             </div>
 
-            <a href="https://api.whatsapp.com/send?phone=541168589154" target="_blank">Whatsapp</a>
+            <a href="https://api.whatsapp.com/send?phone=541123892614" target="_blank">Whatsapp</a>
         </div>
     </div>
 </body>
