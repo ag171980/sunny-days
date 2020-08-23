@@ -11,3 +11,6 @@ window.onload = function () {
   content.style.visibility = "hidden";
   content.style.opacity = "0";
 };
+
+/*scroll loader*/
+ScrollReveal().reveal('.ofertas',{delay:300,reset:true});

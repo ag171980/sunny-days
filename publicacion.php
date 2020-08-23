@@ -1,3 +1,15 @@
+<?php 
+session_start();
+
+include 'actions/conexion.php';
+include 'actions/config.php';
+$id=$_POST['id'];
+$consulta = $pdo->prepare("SELECT * FROM productos WHERE id_producto = '$id'");
+$consulta->execute();
+$publicacion = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,16 +32,17 @@
     </header>
     <article class="container">
         <section>
+            <?php foreach($publicacion as $producto){ ?>
             <div class="left">
                 <div class="imagen">
-                    <img src="imagenes/foto4.jpg" class="img" alt="">
+                    <img src="imagenes/<?php echo $producto['foto_producto']; ?>" class="img" alt="">
                 </div>
             </div>
             <div class="right">
                 <div class="information">
-                    <h3 class="text-center">ZAPATILLAS URBANAS</h3>
-                    <p>Precio: $2000</p>
-                    <p>Stock: 200</p>
+                    <h3 class="text-center"><?php echo $producto['nombre_producto']; ?></h3>
+                    <p>Precio: $<?php echo $producto['precio_producto']; ?></p>
+                    <p>Stock: <?php echo $producto['stock_producto']; ?></p>
                     <div id="accordion">
                         <div>
                             <div>
@@ -82,7 +95,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Talles: </label>
                     <select class="form-control select" id="exampleFormControlSelect1">
@@ -98,6 +110,7 @@
                     <button class="btn btn-success btn-block"><i class="fas fa-shopping-cart"></i>Agregar al carrito</button>
                 </div>
             </div>
+            <?php } ?>
         </section>
     </article>
     <footer>

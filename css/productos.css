@@ -31,9 +31,62 @@ h1::after {
     z-index: 0;
 }
 
+.usuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: white;
+    padding-right: 15px;
+    padding-top: 10px;
+    position: relative;
+    z-index: 0;
+}
+
 .productos {
     display: grid;
     grid-template-columns: auto auto auto;
+}
+
+.formulario_buscador {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 5vh;
+    width: auto;
+}
+
+.search_input {
+    flex-basis: 82%;
+    width: 40vw;
+    outline: none;
+    padding: 10px;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.button {
+    background-color: black;
+    border: none;
+    width: 2vw;
+    color: white;
+    flex-basis: 8%;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    transition: all 0.2s;
+}
+
+.button:hover {
+    border: none;
+    background-color: white;
+    color: black;
+    outline: none;
+    transition: all 0.2s;
 }
 
 .productos .item {
@@ -60,30 +113,26 @@ h1::after {
     font-family: 'Barlow Condensed', sans-serif;
 }
 
-.productos .item .buttons {
-    width: auto;
+.buttons {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    
 }
-
-.productos .item .buttons a,
-.productos .item .buttons button {
-    width: 50%;
+.buttons button{
+    border-radius: 50px;
+    width: 3em;
+    transition: all 0.2s;
 }
-
-.productos .item .buttons a {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 10px;
-
+.buttons button:hover{
+    width: 5em;
 }
-
-.productos .item .buttons button {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 10px;
+.buttons .input-hidden {
+    height: 0;
+    width: 0;
+    border: none;
 }
 
 @media(max-width:1108px) {
@@ -104,6 +153,7 @@ h1::after {
         grid-template-columns: auto;
     }
 }
+
 @media(max-width:425px) {
     .productos .item .img {
         width: 300px;
@@ -115,6 +165,7 @@ h1::after {
         grid-template-columns: auto;
     }
 }
+
 @media(max-width:375px) {
     .productos .item .img {
         width: 300px;
@@ -126,6 +177,7 @@ h1::after {
         grid-template-columns: auto;
     }
 }
+
 @media(max-width:325px) {
     .productos .item .img {
         width: 300px;
