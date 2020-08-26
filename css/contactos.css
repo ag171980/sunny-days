@@ -44,41 +44,48 @@ h2 {
 .formulario__label,
 .formulario__input,
 .formulario__button {
-    padding: 3px;
+    padding: 1px;
     display: block;
 }
 
 .formulario__label {
     font-size: 15px;
-    margin-top: -75px;
-    z-index: 1;
-    margin-left: 15px;
     position: absolute;
+    z-index: 1;
+    margin-top: 10px;
+    margin-left: 15px;
     transition: 0.2s;
+}
+
+.formulario__input:invalid {
+    border-color: red;
+}
+
+.formulario__input:valid {
+    border-color: green;
 }
 
 .formulario__input {
     width: 15vw;
     font-size: 15px;
     border: 2px solid #4D4D4D;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    padding: 10px;
 }
 
-.formulario__textarea {
-    border: 2px solid #4D4D4D;
-    width: 15vw;
-}
-
-.formulario__input:focus+.formulario__label {
-    margin-top: -90px;
+.formulario__input:focus .formulario__label {
+    margin-top: -10px;
     background-color: white;
-
     border-radius: 20px;
 }
 
 .fijar {
-    margin-top: -90px;
+    margin-top: -13px;
     background-color: white;
+}
+
+form p {
+    font-style: italic;
 }
 
 @media (max-width:768px) {

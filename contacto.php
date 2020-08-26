@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,6 +28,7 @@
     <footer>
         <?php include 'componentes/footer.php'; ?>
     </footer>
+    <script src="js/validation.js"></script>
     <script src="function.js"></script>
 </body>
 

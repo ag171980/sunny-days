@@ -14,10 +14,12 @@ article {
     justify-content: center;
     align-items: center;
 }
-article .container .img{
+
+article .container .img {
     width: 550px;
     height: 500px;
 }
+
 article section:nth-child(1) {
     flex-basis: 40%;
 }
@@ -70,20 +72,25 @@ h2 {
 }
 
 .formulario__input:focus .formulario__label {
-    margin-top: -10px;
+    margin-top: -20px;
     background-color: white;
     border-radius: 20px;
 }
 
 .fijar {
-    margin-top: -13px;
+    margin-top: -130px;
     background-color: white;
 }
-
+.input-hidden {
+    height: 0;
+    width: 0;
+    border: none;
+}
 form p {
     font-style: italic;
 }
-form .hide{
+
+form .hide {
     border: none;
     background-color: transparent;
     color: #767676;
@@ -91,7 +98,8 @@ form .hide{
     top: -65px;
     left: 13.2vw;
 }
-form .nohide{
+
+form .nohide {
     border: none;
     background-color: transparent;
     color: #767676;
@@ -99,67 +107,83 @@ form .nohide{
     top: -65px;
     left: 12vw;
 }
-@media (max-width:768px){
-    article{
+
+@media (max-width:768px) {
+    article {
         display: flex;
         flex-direction: row;
         width: 90%;
     }
-    .formulario__input{
+
+    .formulario__input {
         width: 30vw;
     }
-    form .hide{
+
+    form .hide {
         left: 25vw;
     }
-    form .nohide{
+
+    form .nohide {
         left: 22vw;
     }
-    article .container .img{
+
+    article .container .img {
         width: 300px;
         height: 300px;
     }
 }
-@media (max-width:644px){
-    article{
+
+@media (max-width:644px) {
+    article {
         display: flex;
         flex-direction: column;
         width: 90%;
     }
-    .formulario__input{
+
+    .formulario__input {
         width: 45vw;
     }
-    form .hide{
+
+    form .hide {
         left: 40vw;
     }
-    form .nohide{
+
+    form .nohide {
         left: 36.5vw;
     }
-    article .container .img{
+
+    article .container .img {
         width: 0;
         height: 0;
     }
 }
-@media (max-width:425px){
-    .formulario__input{
+
+@media (max-width:425px) {
+    .formulario__input {
         width: 65vw;
     }
-    form .hide{
+
+    form .hide {
         left: 58vw;
     }
-    form .nohide{
+
+    form .nohide {
         left: 52.5vw;
-    } 
+    }
 }
-@media (max-width:375px){ 
-    form .nohide{
+
+@media (max-width:375px) {
+    form .nohide {
         left: 51.5vw;
-    } 
+    }
 }
-@media (max-width:325px){ 
-    form .hide{
+
+@media (max-width:325px) {
+    form .hide {
         left: 56vw;
     }
-    form .nohide{
+
+    form .nohide {
         left: 49vw;
-    } 
+    }
 }
