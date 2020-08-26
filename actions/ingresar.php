@@ -3,22 +3,23 @@ session_start();
 include('conexion.php');
 $correo = $_POST['email'];
 $pass = $_POST['password'];
-
 $consulta=$pdo->prepare("SELECT * FROM usuarios WHERE email='$correo' and pass='$pass'");
 
 $consulta->execute();
 
 if($consulta->rowCount() > 0)
 {
-    echo '<div style="backgroundcolor:rgba(0,0,0,0.5);width:100vw;height:100vh;display:flex;flex-direction:row;justify-content:center;align-items:center;">
-    <div></div>Inicio de sesion correctamente</div>
-    </div>
+    echo '
     <script>
 	
 	window.location.href="../index.php";
 	</script>';
 	session_start();
 	$_SESSION['email'] = $correo;
+	$_SESSION['pass'] = $pass;
+	$id_usuario = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email ='$correo'");
+	$id_usuario->execute();
+	echo $id_usuario;
 }
 else
 {

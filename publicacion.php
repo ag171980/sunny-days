@@ -30,6 +30,7 @@ $publicacion = $consulta->fetchAll(PDO::FETCH_ASSOC);
     <header>
         <?php include 'componentes/header.php'; ?>
     </header>
+    <?php include 'componentes/usuario.php'; ?>
     <article class="container">
         <section>
             <?php foreach($publicacion as $producto){ ?>
@@ -52,44 +53,7 @@ $publicacion = $consulta->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <td>Talle </td>
-                                                <td>cm</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>35</td>
-                                                <td>22.8cm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>36</td>
-                                                <td>23.5cm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>37</td>
-                                                <td>24.1cm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>38</td>
-                                                <td>25cm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>39</td>
-                                                <td>25.5cm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>40</td>
-                                                <td>26cm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>41</td>
-                                                <td>26.5cm</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <?php include 'componentes/table.php'; ?>
                                 </div>
                             </div>
                         </div>
@@ -105,9 +69,16 @@ $publicacion = $consulta->fetchAll(PDO::FETCH_ASSOC);
                         <option>39</option>
                     </select>
                 </div>
+                <?php if($producto['stock_producto'] != 0): ?>
                 <div class="buttons">
                     <button class="btn btn-primary btn-block"><i class="fas fa-shopping-bag"></i>Comprar</button>
                     <button class="btn btn-success btn-block"><i class="fas fa-shopping-cart"></i>Agregar al carrito</button>
+                </div>
+                <?php else: ?>
+                    <div class="buttons">
+                    <button class="btn btn-primary disabled btn-block"><i class="fas fa-shopping-bag"></i>Comprar</button>
+                    <button class="btn btn-success disabled btn-block"><i class="fas fa-shopping-cart"></i>Agregar al carrito</button>
+                <?php endif; ?>
                 </div>
             </div>
             <?php } ?>

@@ -18,7 +18,7 @@
     <header>
         <?php include 'componentes/header.php'; ?>
     </header>
-
+    <?php include 'componentes/usuario.php'; ?>
     <article>
         <?php include 'componentes/contactos.php'; ?>
     </article>

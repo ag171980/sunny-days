@@ -26,6 +26,7 @@ session_start();
     <header>
         <?php include 'componentes/header.php'; ?>
     </header>
+    <?php include 'componentes/usuario.php'; ?>
     <article>
         <section class="container">
             <h2 class="text-center">Iniciar Sesion</h2>
@@ -43,7 +44,7 @@ session_start();
             </form>
         </section>
         <section class="container">
-            <img src="imagenes/image.svg" height="500" alt="">
+            <img src="imagenes/image.svg" class="img" alt="">
         </section>
     </article>
     <footer>

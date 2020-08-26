@@ -55,19 +55,6 @@ header {
     }
 }
 
-/*----*/
-.usuario {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    background-color: white;
-    padding-right: 15px;
-    padding-top: 10px;
-    position: relative;
-    z-index: 0;
-}
-
-/*----*/
 /*-------*/
 .bg {
     background-image: url('../imagenes/fondoo.jpg');
@@ -201,7 +188,11 @@ h2::after {
     justify-content: space-around;
     align-items: center;
 }
-
+.buttons .input-hidden {
+    height: 0;
+    width: 0;
+    border: none;
+}
 .offers .information .buttons button {
     margin: 0 10px;
 }

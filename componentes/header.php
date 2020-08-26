@@ -29,6 +29,7 @@
             <a href="contacto.php" class="nav-item">Contacto</a>
         </div>
     </nav>
+    
     <script src="js/wave.js"></script>
 </body>
 

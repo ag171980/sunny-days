@@ -1,5 +1,10 @@
-<?php 
+<?php
 session_start();
+include 'actions/conexion.php';
+include 'actions/config.php';
+$consulta = $pdo->prepare("SELECT * FROM productos WHERE oferta_producto = 1");
+$consulta->execute();
+$listaOfertas =  $consulta->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,11 +20,6 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <!--Slick css -->
-    <!--
-    <link rel="stylesheet" href="css/slick/slick.css">
-    <link rel="stylesheet" href="css/slick/slick-theme.css">
--->
     <link rel="stylesheet" href="css/style.css">
 
     <title> - Inicio - </title>
@@ -32,16 +32,10 @@ session_start();
     </div>
     <header>
         <?php include 'componentes/header.php'; ?>
+
     </header>
 
-    <div class="usuario">
-        <?php if (!isset($_SESSION['email'])) : ?>
-            <a href="login.php">Inicia sesion </a>
-            <p>/</p><a href="registro.php">registrate</a>
-        <?php else : ?>
-            <p><?php echo 'Usuario: '.$_SESSION['email']; ?><a href="actions/logout.php"> Salir</a></p>
-        <?php endif; ?>
-    </div>
+    <?php include 'componentes/usuario.php'; ?>
     <section>
         <article class="bg">
             <div class="slider-text">
@@ -52,122 +46,35 @@ session_start();
             <h2><span>Oferta Semanal</span></h2>
             <div class="container-a1">
                 <ul class="offers">
-                    <li>
-                        <img src="imagenes/foto.jpg" class="img" alt="">
-                        <div class="caption">
-                            <div class="blur"></div>
-                            <div class="information">
-                                <h1>Pantubotas</h1>
-                                <p>súper calentitas y livianas ideales para este invierno</p>
-                                <div class="buttons">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                    <button class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
+                    <?php foreach ($listaOfertas as $ofertas) { ?>
+                        <li>
+                            <img src="imagenes/<?php echo $ofertas['foto_producto']; ?>" class="img" alt="">
+                            <div class="caption">
+                                <div class="blur"></div>
+                                <div class="information">
+                                    <h1><?php echo $ofertas['nombre_producto']; ?></h1>
+                                    <p><?php echo $ofertas['descripcion_producto']; ?></p>
+                                    <div class="buttons">
+                                        <form method="POST" action="publicacion.php">
+                                            <input type="text" class="input-hidden" name="id" value="<?php echo $ofertas['id_producto']; ?>" />
+                                            <button type="submit" class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="imagenes/foto4.jpg" class="img" alt="">
-                        <div class="caption">
-                            <div class="blur"></div>
-                            <div class="information">
-                                <h1>Zapatillas urbanas</h1>
-                                <p>súper cancheras</p>
-                                <div class="buttons">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                    <button class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="imagenes/foto5.jpg" class="img" alt="">
-                        <div class="caption">
-                            <div class="blur"></div>
-                            <div class="information">
-                                <h1>Botas de lluvia</h1>
-                                <p>Que la lluvia no te frene
-                                    Ponele color a los días de lluvia</p>
-                                <div class="buttons">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                    <button class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    <?php } ?>
                 </ul>
-            </div>
-            <!--one-->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <button type="button" class="close" style="position: absolute;top:10px;right:10px; color:red; background-color:black;" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div id="carouselExampleControls" style="width: 100%;margin:0;padding:0;" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="imagenes/foto.jpg" alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="imagenes/foto4.jpg" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="imagenes/foto5.jpg" alt="Third slide">
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--two-->
-            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <button type="button" class="close" style="position: absolute;top:10px;right:10px; color:red; background-color:black;" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <img src="imagenes/foto4.jpg" style="width: 100%;margin:0;padding:0;" class="img" alt="">
-                    </div>
-                </div>
-            </div>
-            <!--three-->
-            <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <button type="button" class="close" style="position: absolute;top:10px;right:10px; color:red; background-color:black;" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <img src="imagenes/foto5.jpg" style="width: 100%;margin:0;padding:0;" class="img" alt="">
-                    </div>
-                </div>
             </div>
         </article>
     </section>
     <footer>
         <?php include 'componentes/footer.php'; ?>
     </footer>
-    
+
     <script src="js/main.js" type="text/javascript">
     </script>
-    <!--Slick Slider-->
-    <!--<script src="js/slick/slick.js"></script>-->
-
 </body>
 
 </html>

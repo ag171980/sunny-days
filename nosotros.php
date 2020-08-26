@@ -12,14 +12,37 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <title> - Nosotros - </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="css/nosotros.css">
 </head>
 
 <body>
     <header>
         <?php include 'componentes/header.php'; ?>
     </header>
-
+    <?php include 'componentes/usuario.php'; ?>
+    <article class="productos">
+        <section class="item">
+            <div class="imagen">
+                <img src="imagenes/foto4.jpg" class="img" alt="">
+            </div>
+            <div class="informacion">
+                <div class="head-card">
+                    <h5>BOTAS DE LLUVIA NEGRAS</h5>
+                    <p>$2500</p>
+                </div>
+                <p>Hay Stock disponible!</p>
+                <div class="buttons">
+                    <form method="POST" action="publicacion.php">
+                        <input type="text" class="input-hidden" name="id" />
+                        <button type="submit" class=" btn button-card view"><i class="fas fa-arrows-alt"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </article>
+    <footer>
+        <?php include 'componentes/footer.php'; ?>
+    </footer>
 
 
 </body>

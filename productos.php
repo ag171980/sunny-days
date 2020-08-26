@@ -1,14 +1,52 @@
 <?php
 session_start();
-error_reporting(0);
-include 'actions/Conexion.php';
+include 'actions/conexion.php';
 include 'actions/config.php';
+error_reporting(0);
 $buscar = $_POST['palabra'];
 $filtro = $_POST['select'];
+$correo = $_SESSION['email'];
+
+$id_usuario = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email ='$correo'");
+$id_usuario->execute();
+$usuario = $id_usuario->fetchAll(PDO::FETCH_ASSOC);
+
 $consultar = $pdo->prepare("SELECT * FROM productos WHERE nombre_producto LIKE '%$buscar%'");
-$consultaOrden = $pdo->prepare("SELECT * FROM productos ORDER BY asc");
 $consultar->execute();
+
+
 $listaFiltro = $consultar->fetchAll(PDO::FETCH_ASSOC);
+
+function array_sort_by(&$arrIni, $col, $order)
+{
+    $arrAux = array();
+    foreach ($arrIni as $key => $row) {
+        $arrAux[$key] = is_object($row) ? $arrAux[$key] = $row->$col : $row[$col];
+        $arrAux[$key] = strtolower($arrAux[$key]);
+    }
+    array_multisort($arrAux, $order, $arrIni);
+}
+function storey_sort($building_a, $building_b) {
+    return $building_b["precio_producto"] - $building_a["precio_producto"];
+}
+
+if ($filtro == "A-Z") {
+    //$order = SORT_ASC
+
+
+    array_sort_by($listaFiltro, 'nombre_producto', $order = SORT_ASC);
+} else if ($filtro == 'Z-A') {
+
+
+    array_sort_by($listaFiltro, 'nombre_producto', $order = SORT_DESC);
+} else if ($filtro == "Mayor precio") {
+    usort($listaFiltro, "storey_sort");
+
+} else if ($filtro == "Menor precio") {
+    array_sort_by($listaFiltro, 'precio_producto', $order = SORT_NUMERIC);
+}
+
+
 $cantidad = count($listaFiltro);
 ?>
 <!DOCTYPE html>
@@ -31,81 +69,82 @@ $cantidad = count($listaFiltro);
     <header>
         <?php include 'componentes/header.php'; ?>
     </header>
-    <div class="usuario">
-        <?php if (!isset($_SESSION['email'])) : ?>
-            <a href="login.php">Inicia sesion </a>
-            <p>/</p><a href="registro.php">registrate</a>
-        <?php else : ?>
-            <p><?php echo 'Usuario: ' . $_SESSION['email']; ?><a href="actions/logout.php"> Salir</a></p>
-        <?php endif; ?>
-    </div>
+    <?php include 'componentes/usuario.php'; ?>
     <article>
-        <h1><span>Productos</span></h1>
-        <form method="POST" class="formulario_buscador" role="search" action="productos.php">
-            <div class=" btn-group">
-                <input type="search" name="palabra" class="search_input" placeholder="Buscar.." value="<?php echo $buscar; ?>">
-                <button type="submit" name="buscador" class="button" data-toggle="searchbar">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-            <div>
-
-                <select name="select" id="select">
-                    <option value="-">-</option>
-                    <option value="A-Z">A-Z</option>
-                    <option value="Z-A">Z-A</option>
-                    <option value="Mayor precio">Mayor precio</option>
-                    <option value="Menor precio">Menor precio</option>
-                </select>
-                
-                <button type="submit" name="filtro" class="btn btn-primary">Filtrar</button>
-            </div>
-        </form>
-        <?php
-        if ($buscar == null || $filtro == null) {
-            echo 'Resultados para: <b>' . $buscar . "</b> total: " . $cantidad . "<br/> ";
-            echo ' Filtrado por: ' . $filtro . " .";
-        } else {
-            echo 'Resultados para: <b>' . $buscar . "</b> total: " . $cantidad . "<br/> ";
-            echo ' Filtrado por: ' . $filtro . " .";
-        }
-        ?>
         <section>
-            <div class="productos">
-                <?php foreach ($listaFiltro as $filtro) { ?>
-                    <div class="item" id="<?php echo $filtro['id_producto']; ?>">
-                        <img src="imagenes/<?php echo $filtro['foto_producto']; ?>" class="img" alt="">
-                        <h3 class="text-center"><?php echo $filtro['nombre_producto']; ?></h3>
-                        <?php if ($filtro['stock_producto'] != 0) : ?>
+            <?php //foreach($usuario as $user){
+            // echo $user['id_usuario'];
+            echo $valor;
+            //} 
+            ?>
+            <h1><span>Productos</span></h1>
+            <form method="POST" class="formulario_buscador" role="search" action="productos.php">
+                <div class=" btn-group">
+                    <input type="search" name="palabra" class="search_input" placeholder="Buscar..." value="<?php echo $buscar; ?>">
+                    <button type="submit" name="buscador" class="button" data-toggle="searchbar">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <div>
 
-                            <p>Hay Stock disponible!</p>
+                    <select name="select" id="select">
+                        <option value="-">-</option>
+                        <option value="A-Z">A-Z</option>
+                        <option value="Z-A">Z-A</option>
+                        <option value="Mayor precio">Mayor precio</option>
+                        <option value="Menor precio">Menor precio</option>
+                    </select>
+
+                    <button type="submit" name="filtro" class="btn btn-primary">Filtrar</button>
+                </div>
+            </form>
+            <?php
+            if ($buscar == null || $filtro == null) {
+                echo 'Resultados para: <b>' . $buscar . "</b> total: " . $cantidad . "<br/> ";
+                echo ' Filtrado por: ' . $filtro . " .";
+            } else {
+                echo 'Resultados para: <b>' . $buscar . "</b> total: " . $cantidad . "<br/> ";
+                echo ' Filtrado por: ' . $filtro . " .";
+            }
+            ?>
+        </section>
+        <section class="productos">
+            <?php foreach ($listaFiltro as $filtro) { ?>
+                <div class="item" id="<?php echo $filtro['id_producto']; ?>">
+                    <div class="imagen">
+                        <img src="imagenes/<?php echo $filtro['foto_producto'] ?>" class="img" alt="">
+                    </div>
+                    <div class="informacion">
+                        <div class="head-card">
+                            <div class="h-cinco">
+                                <h5><?php echo $filtro['nombre_producto']; ?></h5>
+                            </div>
+                            <div class="p-cinco">
+                                <p>$<?php echo $filtro['precio_producto']; ?></p>
+                            </div>
+
+
+                        </div>
+                        <?php if ($filtro['stock_producto'] != 0) : ?>
+                            <p>¡Hay Stock disponible!</p>
                             <div class="buttons">
                                 <form method="POST" action="publicacion.php">
                                     <input type="text" class="input-hidden" name="id" value="<?php echo $filtro['id_producto']; ?>" />
-                                    <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-arrows-alt"></i></button>
-                                </form>
-                                <form action="">
-                                    <button class="btn btn-success btn-lg"><i class="fas fa-shopping-cart"></i></button>
+                                    <button type="submit" class=" btn button-card view"><i class="fas fa-arrows-alt"></i></button>
                                 </form>
                             </div>
-
                         <?php else : ?>
-
                             <p class="text-danger">No hay stock</p>
                             <div class="buttons">
                                 <form method="POST" action="publicacion.php">
                                     <input type="text" class="input-hidden" name="id" value="<?php echo $filtro['id_producto']; ?>" />
-                                    <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-arrows-alt"></i></button>
-                                </form>
-                                <form action="">
-                                    <button class="btn btn-success btn-lg"><i class="fas fa-shopping-cart"></i></button>
+                                    <button type="submit" class=" btn button-card view"><i class="fas fa-arrows-alt"></i></button>
                                 </form>
                             </div>
-
                         <?php endif; ?>
                     </div>
-                <?php } ?>
-            </div>
+                </div>
+            <?php } ?>
         </section>
     </article>
     <footer>
