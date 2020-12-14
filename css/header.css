@@ -6,7 +6,7 @@
 }
 header {
     background-color: rgba(255, 255, 255, 0.9);
-    height: 100px;
+    height: 101px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -144,7 +144,7 @@ header .navbar a:hover {
         position: absolute;
         height: auto;
         width: 100vw;
-        top: 12vh;
+        top: 100px;
         left: 0;
         z-index: 2;
     }

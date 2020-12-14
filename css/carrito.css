@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+article {
+    min-height: 80vh;
+}
+
+.container .total {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+.total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.condiciones p {
+    font-weight: 500;
+    font-style: italic;
+    color: #939393;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.container {
+    margin: 10px auto;
+    width: 95%;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    border-bottom: 1px solid #A4A4A4;
+}
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.imagen {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 5px;
+    padding-right: 5px;
+}
+
+.informacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.informacion .contenido{
+    margin-bottom: 28px;
+}
+.informacion .contenido .titulo h3{
+    font-size: 13px;
+}
+.boton {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 0;
+}
+
+.informacion .eliminar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.precio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.datos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.datos .cantidad {
+    width: 50%;
+}
+
+.input-hidden {
+    height: 0;
+    width: 0;
+    border: none;
+}
+.button-cancel{
+    color: white;
+    background-color: #c82333;
+    border: none;
+    padding: 6px;
+    border-radius: 5px;
+}
+.button-shop{
+    color: white;
+    background-color: #28a745;
+    border: none;
+    padding: 15px 50px;
+    margin: 0 auto;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.button-shop i{
+    font-size: 20px;
+}
+.login{
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+    margin: 30px 20px;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+}
+.login a{
+    text-decoration: none;
+    color: #55B0F8;
+}
+.login .svg{
+    height: 600px;
+    width: 850px;
+    margin: 15px;
+}
+@media (max-width:425px) {
+    .modal-header {
+        padding: 5px;
+    }
+
+    .container .producto {
+        align-items: flex-start;
+    }
+
+    .producto .imagen {
+        padding: 5px;
+    }
+
+    .container .total {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .total .precio h3 {
+        font-size: 20px;
+    }
+
+    .total .pagar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .total .pagar button,
+    .total .pagar a {
+        margin: 5px auto;
+    }
+
+    .datos h4 {
+        font-size: 17px;
+    }
+
+    .datos label {
+        font-size: 15px;
+    }
+
+    .titulo h3 {
+        font-size: 15px;
+    }
+
+    .precio p {
+        font-size: 13px;
+    }
+
+    .precio h4 {
+        font-size: 17px;
+    }
+
+    .datos {
+        flex-direction: column;
+    }
+}
+@media (max-width:320px){
+    .login .svg{
+        height: 500px;
+        width: 240px;
+    }
+}

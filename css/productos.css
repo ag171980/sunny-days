@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 h1 {
     text-align: center;
@@ -14,6 +21,7 @@ h1 span {
     z-index: 1;
     position: relative;
     padding: 15px;
+    font-size: 40px;
 }
 
 h1::after {
@@ -41,15 +49,16 @@ h1::after {
     flex-direction: column;
     justify-content: center;
     width: 60%;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .btn-group {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 5vh;
+
     width: auto;
+    margin: 10px 0;
 }
 
 .search_input {
@@ -58,18 +67,39 @@ h1::after {
     outline: none;
     padding: 15px;
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
-    
+    border: 2px solid black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.select_input {
+    border: 2px solid black;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    font-size: 20px;
+
+}
+
+.button_input {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
 }
 
 .button {
     background-color: black;
     border: none;
-    width: 20%;
-    padding: 0px 15px;
+    padding: 5px 15px;
     color: white;
     flex-basis: 8%;
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
     transition: all 0.2s;
+    font-size: 20px;
 }
 
 .button:hover {
@@ -83,28 +113,21 @@ h1::after {
 .productos .item {
     background-color: white;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
-    height: auto;
-    width: auto;
-    margin: 30px auto;
+    margin: 20px auto;
     border-radius: 10px;
-}
-
-.item {
     display: flex;
     flex-direction: column;
+    width: 300px;
+    height: 500px;
 }
 
-.item .imagen {
-    flex-basis: 50%;
-}
-
-.item .informacion {
-    flex-basis: 10%;
+.productos .item .imagen {
+    margin: -4px 0;
 }
 
 .productos .item .imagen .img {
     width: 300px;
-    height: 250px;
+    height: 270px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
@@ -113,40 +136,44 @@ h1::after {
     font-family: 'Barlow Condensed', sans-serif;
     margin-left: 1.5em;
 }
-
+.informacion>.stock {
+    margin: 7px 0;
+}
+.informacion>.no-stock {
+    color: red;
+    margin: 15px 0;
+}
+.informacion>.oferta{
+    color: #6691FC;
+}
 .informacion {
     box-shadow: 0px -3px 5px -2px rgba(0, 0, 0, 0.75);
     border-top: 2px solid black;
+    height: 230px;
 }
 
 .informacion .head-card {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    margin: 10px auto;
+    flex-direction: column;
     width: 100%;
-}
-
-.head-card .h-cinco,
-.head-card .p-cinco {
-    width: 50%;
 }
 
 .head-card .h-cinco h5,
 .head-card .p-cinco p {
-    text-align: center;
-    margin: 0 auto;
+    margin: 7px 15px;
+    
 }
 
 .head-card .h-cinco h5 {
-    font-size: 17px;
+    font-size: 23px;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .head-card .p-cinco p {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 25px;
+    font-size: 32px;
     color: #6691FC;
+    margin: 1px 15px;
 }
 
 .buttons {
@@ -154,7 +181,7 @@ h1::after {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin: 20px;
+    margin-bottom: 30px;
 }
 
 .buttons .button-card {
@@ -164,16 +191,17 @@ h1::after {
     color: white;
     border: none;
     border-radius: 40px;
+    outline: none;
 }
 
 .buttons .view {
     background-color: #55B0F8;
+    font-size: 17px;
+    outline: none;
 }
-
-.buttons .shop {
-    background-color: #35C259;
+.buttons .view:hover{
+    font-size: 20px;
 }
-
 .buttons .button-card:hover {
     transform: scale(1.4);
 }
@@ -183,8 +211,6 @@ h1::after {
     width: 0;
     border: none;
 }
-
-
 
 @media(max-width:1108px) {
     .productos {

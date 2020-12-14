@@ -1,19 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/usuario.css">
-    <title>Document</title>
-</head>
-<body>
+<?php
+error_reporting(0);
+session_start();
+
+$cantidad = 0;
+foreach ($_SESSION['carrito'] as $indice => $producto) {
+    $cantidad++;
+}
+?>
+
 <div class="usuario">
+    <div class="user">
         <?php if (!isset($_SESSION['email'])) : ?>
-            <a class="text-light" href="./login.php">Inicia sesion  </a>
-            <p class="text-light"> / </p><a class="text-light" href="./registro.php"> Registrate </a>
+            <a href="./login.php">Inicia sesion </a>
+            <p> / </p><a href="./registro.php"> Registrate </a>
         <?php else : ?>
-            <p><?php echo '<p class="text-light">Usuario: ' . $_SESSION['email']. '</p>'; ?><a class="text-light" href="actions/logout.php"> Salir</a></p>
+            <?php echo '<p>' . $_SESSION['email'] . '</p>'; ?><a href="actions/logout.php"> Salir</a>
         <?php endif; ?>
     </div>
-</body>
-</html>
+    <div class="cart">
+        <div class="icon">
+            <i class="fas fa-shopping-cart"></i>
+            <a href="carrito.php">Carrito</a>
+        </div>
+        <p>(<?php echo $cantidad; ?>)</p>
+    </div>
+</div>

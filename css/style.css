@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 /*font-family: 'Pacifico', cursive;*/
 * {
@@ -14,44 +15,51 @@ body {
 }
 
 header {
-    height: 10vh;
+    height: 101px;
 }
 
 /*-------*/
 #loader-container {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 1);
     height: 100vh;
     width: 100vw;
     position: fixed;
     transition: all 1.8s ease;
-    z-index: 1000;
+    z-index: 500;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#loader-container .loader {
-    border: 6px solid transparent;
-    height: 100px;
-    width: 100px;
-    border-top-color: #0dac77;
-    border-left-color: #0dac77;
-    border-radius: 100%;
-    animation: loader 1.1s ease-in infinite;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#loader-container h1,
+#loader-container img {
+    z-index: 501;
+    font-family: 'Lobster', cursive;
+    animation-name: loader;
+    animation-iteration-count: 2s;
+    animation-duration: 2s;
 }
 
 @keyframes loader {
     0% {
-        transform: translate(0%, 0%)rotate(0deg);
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.3);
     }
 
     100% {
-        transform: translate(0%, 0%)rotate(360deg);
+        transform: scale(50);
     }
 }
 
@@ -66,10 +74,12 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 section .bg .slider-text p {
     font-size: 90px;
+    color: white;
     font-family: 'Pacifico', cursive;
 }
 
@@ -85,6 +95,7 @@ h2 span {
     z-index: 100;
     position: relative;
     padding: 15px;
+    font-size: 30px;
 }
 
 h2::after {
@@ -105,8 +116,6 @@ h2::after {
 /*------------*/
 .offers {
     list-style-type: none;
-    margin: 0px;
-    padding: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -115,10 +124,9 @@ h2::after {
 
 .offers li {
     float: left;
-    padding: 0px;
     position: relative;
     overflow: hidden;
-    margin: 30px 0px;
+    margin: 20px 0px;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
 }
 
@@ -132,8 +140,6 @@ h2::after {
 }
 
 .offers img {
-    margin: 0px;
-    padding: 0px;
     float: left;
     z-index: 4;
 }
@@ -167,7 +173,7 @@ h2::after {
     text-transform: uppercase;
     font-size: 18px;
     font-family: 'Barlow Condensed', sans-serif;
-    padding: 0 20px;
+    padding: 0 0px;
 }
 
 .offers .information {
@@ -177,9 +183,9 @@ h2::after {
     width: 350px;
     height: 300px;
     text-align: center;
-    top: 12vh;
+    top: 80px;
     padding: 0 40px;
-    
+
 }
 
 .offers .information .buttons {
@@ -188,13 +194,22 @@ h2::after {
     justify-content: space-around;
     align-items: center;
 }
+
 .buttons .input-hidden {
     height: 0;
     width: 0;
     border: none;
 }
-.offers .information .buttons button {
-    margin: 0 10px;
+
+.offers .information .buttons .button-offer {
+    margin: 7px 10px;
+    background-color: #007bff;
+    color: white;
+    border-color:#007bff;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
 }
 
 /*------------*/
@@ -211,6 +226,9 @@ h2::after {
 }
 
 @media (max-width:375px) {
+    section .bg .slider-text p{
+        font-size: 75px;
+    }
     .offers {
         list-style-type: none;
         margin: 0px;
@@ -254,6 +272,9 @@ h2::after {
 }
 
 @media (max-width:320px) {
+    section .bg .slider-text p{
+        font-size: 65px;
+    }
     .offers {
         list-style-type: none;
         margin: 0px;

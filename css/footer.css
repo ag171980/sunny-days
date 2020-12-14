@@ -1,26 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+
+/*font-family: 'Barlow Condensed', sans-serif;*/
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 footer {
-    height: 15vh;
+    
     background-color: #292929;
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px -2px 6px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px -2px 6px -1px rgba(0, 0, 0, 0.75); 
+    padding: 15px;
 }
 
 footer .datos {
-    height: 10vh;
     margin: 10px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 footer .datos .redes {
@@ -36,6 +39,7 @@ footer .datos .redes a {
     text-decoration: none;
     font-size: 22px;
     margin: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 footer .datos .redes .instagram {
@@ -133,5 +137,6 @@ footer .datos a:hover {
         justify-content: center;
         align-items: center;
         height: auto;
+        margin-bottom: -50px;
     }
 }
